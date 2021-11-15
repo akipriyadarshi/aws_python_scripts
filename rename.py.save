@@ -1,0 +1,31 @@
+from pathlib import Path
+import glob
+import os
+
+
+files= glob.glob("/home/knoldus/Desktop/files_to_be_encrypted/*")
+
+os.chdir("/home/knoldus/Desktop/files_to_be_encrypted")
+path= os.getcwd()
+
+for filename in files:
+	base=os.path.basename(filename)
+	dest= "/"+os.path.splitext(base)[0]+".encrypt"
+	os.rename(filename,dest)
+
+#print(files)
+
+#print(files[0])
+
+#os.rename(files[0],"/home/knoldus/Desktop/files_to_be_encrypted/hello.txt")
+
+
+#print("File      Path:",Path(__file__).absolute())
+#print("Directory Path:", Path().absolute())
+
+base=os.path.basename(files[0])
+dest= "/"+os.path.splitext(base)[0]+".encrypt"
+os.chdir("/home/knoldus/Desktop/files_to_be_encrypted")
+path= os.getcwd()
+dest=path+ "/"+os.path.splitext(base)[0]+".encrypt"
+os.rename(files[0],dest)
